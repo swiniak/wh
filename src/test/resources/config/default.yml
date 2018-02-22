@@ -1,0 +1,19 @@
+# I prefer yaml over JSON and property files for readability
+baseUrl: http://sports.williamhill.com
+driver: org.openqa.selenium.chrome.ChromeDriver
+waitTimeout: 30
+pages:
+  - name: betting
+    className: com.williamhill.testing.cucumber.pages.betting.BettingPage
+    path: /betting/en-gb # TODO lang in path should be parametrized
+    urlPattern: "^/betting(?:/(?<language>[a-z]{2}(?:-[a-z]{2})?))$"
+  - name: football
+    className: com.williamhill.testing.cucumber.pages.betting.FootballPage
+    path: /betting/en-gb/football
+    urlPattern: "^/betting(?:/(?<language>[a-z]{2}(?:-[a-z]{2})?))/football(/[^/?]+)*$"
+# Some place for shared test data. I guess this could be kept anywhere else depending on needs
+data:
+  users:
+    - name: Joe Bloggs
+      userName: WHITA_opex7
+      password: 0p3x2017
